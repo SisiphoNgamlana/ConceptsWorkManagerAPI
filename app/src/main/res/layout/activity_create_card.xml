@@ -28,15 +28,6 @@
             android:text="@string/title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <!-- Card Customization Option -->
-
-        <!--            <Button-->
-        <!--                android:id="@+id/add_random_quote"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="@string/add_random" />-->
-
         <LinearLayout
             android:id="@+id/custom_quote_layout"
             android:layout_width="match_parent"
@@ -50,17 +41,6 @@
                 android:hint="@string/hint_add_text"
                 android:autofillHints="Life is great"
                 android:inputType="text" />
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/add_custom_quote"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center"-->
-            <!--                    android:text="@string/add_custom_quote" />-->
-
-
-
-
 
         </LinearLayout>
 
