@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
-import androidx.work.ListenableWorker;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
@@ -43,7 +42,7 @@ public class CardWorker extends Worker {
             Bitmap photo = BitmapFactory.decodeStream(
                     contentResolver.openInputStream(Uri.parse(imageResourceUri)));
 
-            Bitmap output = CardWorkerUtils.overLayTextOnBitmap(applicationContext, photo, quote);
+            Bitmap output = CardWorkerUtils.overlayTextOnBitmap(applicationContext, photo, quote);
 
             Uri outputUri = CardWorkerUtils.writeBitmapToFile(applicationContext, output);
 

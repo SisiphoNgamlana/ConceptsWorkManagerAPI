@@ -38,7 +38,6 @@ public class CreateCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_card);
 
-
         imageView = findViewById(R.id.image_view);
         quoteEditText = findViewById(R.id.custom_quote_edtx);
         seeCardButton = findViewById(R.id.see_card_button);
@@ -116,7 +115,6 @@ public class CreateCardActivity extends AppCompatActivity {
         });
     }
 
-
     private void showWorkFinished() {
         progressBar.setVisibility(View.GONE);
         cancelProcess.setVisibility(View.GONE);
@@ -128,5 +126,4 @@ public class CreateCardActivity extends AppCompatActivity {
         cancelProcess.setVisibility(View.VISIBLE);
         seeCardButton.setVisibility(View.GONE);
     }
-
 }

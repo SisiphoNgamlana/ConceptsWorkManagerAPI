@@ -59,7 +59,8 @@ public class CustomCardViewModel extends AndroidViewModel {
     void processImageToCard(String quote) {
 
         WorkContinuation workContinuation = workManager
-                .beginUniqueWork(IMAGE_PROCESSING_WORK_NAME, ExistingWorkPolicy.REPLACE,
+                .beginUniqueWork(IMAGE_PROCESSING_WORK_NAME,
+                        ExistingWorkPolicy.REPLACE,
                         OneTimeWorkRequest.from(CleanupWorker.class));
 
         OneTimeWorkRequest.Builder cardBuilder =
@@ -67,12 +68,12 @@ public class CustomCardViewModel extends AndroidViewModel {
         cardBuilder.setInputData(createInputDataForUri(quote));
         workContinuation = workContinuation.then(cardBuilder.build());
 
-        Constraints constraints = new Constraints.Builder()
-                .setRequiresCharging(true)
-                .build();
+//        Constraints constraints = new Constraints.Builder()
+//                .setRequiresCharging(false)
+//                .build();
 
         OneTimeWorkRequest save = new OneTimeWorkRequest.Builder(SaveCardToFileWorker.class)
-                .setConstraints(constraints)
+//                .setConstraints(constraints)
                 .addTag(TAG_OUTPUT)
                 .build();
 

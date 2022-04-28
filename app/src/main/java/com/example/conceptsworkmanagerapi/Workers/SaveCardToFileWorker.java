@@ -26,7 +26,7 @@ public class SaveCardToFileWorker extends Worker {
     public static final String TAG = SaveCardToFileWorker.class.getName();
     public static final String TITLE = "Card Image";
     public static final SimpleDateFormat SIMPLE_DATE_FORMAT =
-            new SimpleDateFormat("yyyy.MM.dd 'at HH:mm:ss z", Locale.getDefault());
+            new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss z", Locale.getDefault());
 
 
     public SaveCardToFileWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
@@ -61,7 +61,7 @@ public class SaveCardToFileWorker extends Worker {
                     .putString(KEY_IMAGE_URI, outputUri)
                     .build();
 
-            return ListenableWorker.Result.success(outputData);
+            return Worker.Result.success(outputData);
 
         } catch (Exception exception) {
             Log.e(TAG, "Unable to save image to Gallery", exception);

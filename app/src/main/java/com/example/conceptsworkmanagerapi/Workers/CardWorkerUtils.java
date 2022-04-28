@@ -11,7 +11,6 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.graphics.text.LineBreaker;
 import android.net.Uri;
 import android.os.Build;
 import android.text.Layout;
@@ -78,7 +77,7 @@ final public class CardWorkerUtils {
     static Bitmap overLayTextOnBitmap(@NonNull Context applicationContext,
                                       @NonNull Bitmap bitmap,
                                       @NonNull String quote) {
-
+        // Create the output bitmap
         Bitmap bitmapOutput = Bitmap.createBitmap(bitmap.getWidth(),
                 bitmap.getHeight(), bitmap.getConfig());
 
@@ -86,15 +85,19 @@ final public class CardWorkerUtils {
 
         float scale = applicationContext.getResources().getDisplayMetrics().density;
 
-        TextPaint paint = new TextPaint(TextPaint.ANTI_ALIAS_FLAG);
-
+        // Create Paint
+        TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.rgb(61, 61, 61));
         paint.setTextSize(28 * scale);
 
         paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
 
-        int textWidth = (int) (canvas.getWidth() - (16*scale));
+        int textWidth = (int) (canvas.getWidth() - (16 * scale));
 
+
+        /*
+            Overlay rectangle
+         */
         int canvasWidth = canvas.getWidth();
         int canvasHeight = canvas.getHeight();
 
@@ -151,8 +154,8 @@ final public class CardWorkerUtils {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
             bitmap.compress(Bitmap.CompressFormat.PNG, 0, fileOutputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException exception) {
+            exception.printStackTrace();
         }
 
         return Uri.fromFile(outputFile);
